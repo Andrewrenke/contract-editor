@@ -80,26 +80,27 @@ describe('Contract Service', () => {
   });
 
   test('updateContract should update an existing contract', async () => {
-    const updatedContract = { 
-      author: 'Updated Author', 
-      entityName: 'Updated Entity', 
-      description: 'Updated Description' 
+    const updatedContract = {
+      author: 'Updated Author',
+      entityName: 'Updated Entity',
+      description: 'Updated Description',
     };
-  
+
     mockFetch.mockResolvedValueOnce({ ok: true });
-  
+
     await updateContract('1', updatedContract, true);
-    expect(mockFetch).toHaveBeenCalledWith('http://localhost:4000/contracts/1', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        ...updatedContract, 
-        updatedAt: moment().format('YYYY-MM-DD HH:mm') 
-      }),
-    });
+    expect(mockFetch).toHaveBeenCalledWith(
+      'http://localhost:4000/contracts/1',
+      {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...updatedContract,
+          updatedAt: moment().format('YYYY-MM-DD HH:mm'),
+        }),
+      }
+    );
   });
-  
-  
 
   test('updateContract should throw an error on update failure', async () => {
     const updatedContract = {
