@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# Contract Management App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React-based application for managing contracts. Users can view, edit, and delete contracts through a clean and easy-to-use interface.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **View Contracts**: Displays a list of contracts with information about the author, entity name, description, and creation date.
+- **Edit Contracts**: Allows users to edit the details of existing contracts.
+- **Delete Contracts**: Provides functionality to delete contracts from the list.
 
-### `npm start`
+## JSON Server
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project uses **JSON Server** to mock a REST API for contract data. The server allows you to perform CRUD operations (Create, Read, Update, Delete) on the contracts.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Launch the app
 
-### `npm test`
+### Installation steps
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository or download the project files.
+2. Go to the project directory and install dependencies:
 
-### `npm run build`
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Run the app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+json-server --watch db.json --port 4000
+```
 
-### `npm run eject`
+This will open the app in your default browser, typically at http://localhost:3000.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Folder Structure:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **/src**: Contains the source code.
+- **/components**: Reusable components like ContractList, EditContract.
+- **/services**: Contains functions for fetching and updating contracts from a backend service.
+- **/types**: TypeScript types, such as Contract, used across the app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Project Structure
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **App.tsx**: Main entry point. Executes the commission calculation.
+2. **utils/commissions.js**: Contains the logic for commission calculations.
+3. **db.json**: data file for operations.
+4. **__tests__/contractService.test.ts**: Contains tests for the contract service functions to ensure proper functionality and error handling.
